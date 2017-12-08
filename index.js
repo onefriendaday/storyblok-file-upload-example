@@ -2,8 +2,7 @@ var axios = require('axios')
 var FormData = require('form-data')
 var fs = require('fs')
 var file = './test.txt'
-var email = 'YOUR_EMAIL'
-var password = 'YOUR_PASSWORD'
+var accessToken = 'YOUR_PERSONAL_ACCESS_TOKEN' // Can be found at https://app.storyblok.com/#!/me/account
 var spaceId = 'YOUR_SPACE_ID'
 
 var fileUpload = function(signed_request, success, failed) {
@@ -37,19 +36,6 @@ var signAsset = function(access_token) {
   })
 }
 
-var login = function() {
-  axios.post('https://api.storyblok.com/v1/users/login', {
-      email: email,
-      password: password
-    })
-    .then(function (response) {
-      signAsset(response.data.access_token)
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
-}
-
-login()
+signAsset(accessToken)
 
 
