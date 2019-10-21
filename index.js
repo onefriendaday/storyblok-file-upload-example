@@ -20,7 +20,8 @@ var fileUpload = function(signed_request, success, failed) {
 var signAsset = function(access_token) {
   axios.post('https://api.storyblok.com/v1/spaces/' + spaceId + '/assets', {
     filename: 'test.txt',
-    size: '400x500'
+    size: '400x500',
+    asset_folder_id: null
   }, {
     headers: {'Authorization': access_token}
   })
