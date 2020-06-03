@@ -19,6 +19,7 @@ var fileUpload = function(signed_request, success, failed) {
 
 var signAsset = function(access_token) {
   axios.post('https://api.storyblok.com/v1/spaces/' + spaceId + '/assets', {
+    // add the id to update an existing asset. 'id: 123,'
     filename: 'test.txt',
     size: '400x500',
     asset_folder_id: null
